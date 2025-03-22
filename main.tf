@@ -11,6 +11,8 @@ terraform {
     key     = "terraform.tfstate"
     region  = "eu-north-1"
     profile = ""
+
+    use_lockfile = true
   }
 }
 
