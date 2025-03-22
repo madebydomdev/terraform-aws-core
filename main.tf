@@ -17,6 +17,9 @@ data "aws_region" "current" {}
 
 resource "aws_s3_bucket" "tf_state" {
   bucket = "tf-state-${data.aws_region.current.name}-${data.aws_caller_identity.current.account_id}"
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_s3_bucket_versioning" "tf_state" {
